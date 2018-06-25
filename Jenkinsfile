@@ -13,6 +13,9 @@ pipeline {
     }
 
     stage('Stage one') {
+      agent {
+                label 'jenkins-maven'
+            }
       steps {
   			parallel (
   				a: {
