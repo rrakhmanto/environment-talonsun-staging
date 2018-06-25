@@ -17,7 +17,7 @@ pipeline {
   	}
     stage('Copy The Website') {
   		steps {
-  		 sh 'gsutil rsync -R . gs://hackday.rak01.com'
+  		 sh 'gsutil rsync -R . gs://hackday.rak01.com && gsutil acl ch -u AllUsers:R gs://hackday.rak01.com/index.html'
   		}
   	}
   }
