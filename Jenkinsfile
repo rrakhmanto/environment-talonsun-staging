@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label "jenkins-maven"
+    label "google-sdk"
   }
   options {
     skipDefaultCheckout true
