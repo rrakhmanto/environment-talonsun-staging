@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-    label "jenkins-maven"
-  }
+  agent any
   environment {
     DEPLOY_NAMESPACE = "jx-staging"
   }
@@ -23,14 +21,12 @@ pipeline {
   				},
   				b: {
   					node('linux2') {
-						label 'jenkins-maven'
   						// Run commands here -- maybe output the hostname and then run a Docker container
   						sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
   				},
   				c: {
   					node('linux_3') {
-						label 'jenkins-maven'
   						// Run commands here -- maybe output the hostname and then run a Docker container
   						sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
