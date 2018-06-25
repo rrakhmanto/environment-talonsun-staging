@@ -6,6 +6,13 @@ pipeline {
     DEPLOY_NAMESPACE = "jx-staging"
   }
   stages {
+    stage('I am here') {
+      steps {
+         sh 'echo I am here'
+
+      }
+    }
+
     stage('Validate Environment') {
       steps {
         container('maven') {
