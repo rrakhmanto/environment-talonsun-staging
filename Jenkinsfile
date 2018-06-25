@@ -24,7 +24,7 @@ pipeline {
 			}
 			stage('Execute job 2') {
 				agent {
-					label 'jenkins-maven'
+					label 'jenkins-nodejs'
 				}
 				steps {
 					sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
@@ -32,7 +32,7 @@ pipeline {
 			}
 			stage('Execute job 3') {
 				agent {
-					label 'jenkins-maven'
+					label 'jenkins-python'
 				}
 				steps {
 					sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
