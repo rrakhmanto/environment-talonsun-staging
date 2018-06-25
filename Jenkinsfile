@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label "linux"
+    label "jenkins-maven"
   }
   environment {
     DEPLOY_NAMESPACE = "jx-staging"
@@ -16,7 +16,7 @@ pipeline {
 		parallel {
 			stage('Execute job 1') {
 				agent {
-					label 'linux'
+					label 'jenkins-maven'
 				}
 				steps {
 					sh 'echo "Job 1 running in instance $(hostname) on node $(cat /etc/machine-id)"'
@@ -24,7 +24,7 @@ pipeline {
 			}
 			stage('Execute job 2') {
 				agent {
-					label 'linux'
+					label 'jenkins-maven'
 				}
 				steps {
 					sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
@@ -32,7 +32,7 @@ pipeline {
 			}
 			stage('Execute job 3') {
 				agent {
-					label 'linux'
+					label 'jenkins-maven'
 				}
 				steps {
 					sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
