@@ -4,40 +4,38 @@ pipeline {
     DEPLOY_NAMESPACE = "jx-staging"
   }
   stages {
-    stage('I am here') {
-      steps {
-         sh 'echo I am here'
-      }
-    }
+	stage('I am here') {
+		steps {
+		 sh 'echo I am here'
+		}
+	}
 
     stage('Stage one') {
-      steps {
-  			parallel {
-  				stage('Execute job 1') {
-  					agent {
-  						label 'linux'
-  					}
-  					steps {
-  						sh 'echo "Job 1 running in instance $(hostname) on node $(cat /etc/machine-id)"'
-  					}
-  				}
-  				stage('Execute job 2') {
-  					agent {
-  						label 'linux'
-  					}
-  					steps {
-  						sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
-  					}
-  				}
-  				stage('Execute job 3') {
-  					agent {
-  						label 'linux'
-  					}
-  					steps {
-  						sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
-  					}
-  				}
-  			}
+		parallel {
+			stage('Execute job 1') {
+				agent {
+					label 'linux'
+				}
+				steps {
+					sh 'echo "Job 1 running in instance $(hostname) on node $(cat /etc/machine-id)"'
+				}
+			}
+			stage('Execute job 2') {
+				agent {
+					label 'linux'
+				}
+				steps {
+					sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
+				}
+			}
+			stage('Execute job 3') {
+				agent {
+					label 'linux'
+				}
+				steps {
+					sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
+				}
+			}
 		}
 	}
 
