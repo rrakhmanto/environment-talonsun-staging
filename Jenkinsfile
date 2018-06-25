@@ -1,10 +1,11 @@
 pipeline {
   agent {
     label "jenkins-maven"
-    options {
-      skipDefaultCheckout true
-    }
   }
+  options {
+    skipDefaultCheckout true
+  }
+
   environment {
     DEPLOY_NAMESPACE = "jx-staging"
   }
