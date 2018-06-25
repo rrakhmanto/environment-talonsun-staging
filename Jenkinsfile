@@ -12,29 +12,34 @@ pipeline {
 
     stage('Stage one') {
       steps {
-  			parallel (
-  				a: {
-  					node('linux') {
-  						// Run commands here -- maybe output the hostname and then run a Docker container
+  			parallel {
+  				stage('Execute job 1') {
+  					agent {
+  						label 'linux'
+  					}
+  					steps {
   						sh 'echo "Job 1 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
-  				},
-  				b: {
-  					node('linux2') {
-  						// Run commands here -- maybe output the hostname and then run a Docker container
+  				}
+  				stage('Execute job 2') {
+  					agent {
+  						label 'linux'
+  					}
+  					steps {
   						sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
-  				},
-  				c: {
-  					node('linux_3') {
-  						// Run commands here -- maybe output the hostname and then run a Docker container
+  				}
+  				stage('Execute job 3') {
+  					agent {
+  						label 'linux'
+  					}
+  					steps {
   						sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
   				}
-  			)
-      }
+  			}
 		}
-
+	}
 
     stage('Validate Environment') {
       steps {
