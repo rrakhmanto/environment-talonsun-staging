@@ -13,25 +13,25 @@ pipeline {
     }
 
     stage('Stage one') {
-      agent {
-                label 'jenkins-maven'
-            }
       steps {
   			parallel (
   				a: {
   					node {
+						label "jenkins-maven"
   						// Run commands here -- maybe output the hostname and then run a Docker container
   						sh 'echo "Job 1 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
   				},
   				b: {
   					node {
+						label "jenkins-maven"
   						// Run commands here -- maybe output the hostname and then run a Docker container
   						sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
   				},
   				c: {
   					node {
+						label "jenkins-maven"
   						// Run commands here -- maybe output the hostname and then run a Docker container
   						sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
   					}
