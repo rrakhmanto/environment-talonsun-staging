@@ -25,7 +25,7 @@ pipeline {
 							}
 						}
 					}
-				}
+				},
 				b: {
 					node {
 						// Run commands here -- maybe output the hostname and then run a Docker container
@@ -36,7 +36,7 @@ pipeline {
 							}
 						}
 					}
-				}
+				},
 				c: {
 					node {
 						// Run commands here -- maybe output the hostname and then run a Docker container
