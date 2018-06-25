@@ -15,7 +15,7 @@ pipeline {
 
     stage('Stage one') {
 			parallel (
-				"node 1": {
+				a: {
 					node {
 						// Run commands here -- maybe output the hostname and then run a Docker container
 						sh 'echo "Job 1 running in instance $(hostname) on node $(cat /etc/machine-id)"'
@@ -26,7 +26,7 @@ pipeline {
 						}
 					}
 				}
-				"node 2": {
+				b: {
 					node {
 						// Run commands here -- maybe output the hostname and then run a Docker container
 						sh 'echo "Job 2 running in instance $(hostname) on node $(cat /etc/machine-id)"'
@@ -37,7 +37,7 @@ pipeline {
 						}
 					}
 				}
-				"node 3": {
+				c: {
 					node {
 						// Run commands here -- maybe output the hostname and then run a Docker container
 						sh 'echo "Job 3 running in instance $(hostname) on node $(cat /etc/machine-id)"'
